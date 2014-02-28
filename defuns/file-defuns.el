@@ -40,6 +40,12 @@
           (kill-new filename))
       (error "Buffer does not contain a file name."))))
 
+;; (defun copy-current-file-path () 
+;;   "Add current file path to kill ring. Limits the filename to project root if possible." 
+;;   (interactive) 
+;;   (let ((filename (buffer-file-name)))
+;;     (kill-new (if filename filename (buffer-name)))))
+
 (defun find-or-create-file-at-point ()
   "Guesses what parts of the buffer under point is a file name and opens it."
   (interactive)
