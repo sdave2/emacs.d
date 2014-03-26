@@ -39,7 +39,6 @@
           (message "Saving file name '%s' to kill ring." filename)
           (kill-new filename))
       (error "Buffer does not contain a file name."))))
-
 (defun find-or-create-file-at-point ()
   "Guesses what parts of the buffer under point is a file name and opens it."
   (interactive)

@@ -122,9 +122,9 @@
   (define-key wdired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
   (define-key wdired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom))
 
-;; Find File in Project
-(after 'find-file-in-project-autoloads
-  (global-set-key (kbd "C-x p") 'find-file-in-project))
+;; Find File in Project (projectile)
+(after 'projectile-autoloads
+  (global-set-key (kbd "C-x p") 'projectile-find-file))
 
 ;; Git
 (after 'git
@@ -149,6 +149,8 @@
 
 ;; clojure
 (after 'clojure
+  ;; Remove the binding for inferior-lisp-mode
+  (define-key clojure-mode-map (kbd "C-c C-z") nil)
   (define-key clojure-mode-map (kbd "C-:") 'toggle-clj-keyword-string))
 
 (after 'nrepl-ritz
