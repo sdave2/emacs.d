@@ -1,4 +1,8 @@
-(require-package 'auto-indent-mode)
+(setq auto-indent-on-save-file t)
+(setq auto-indent-delete-trailing-whitespace-on-save-file t)
+(setq auto-indent-untabify-on-save-file t)
 
-(after 'auto-indent-mode-autoloads
-  (auto-indent-global-mode))
+(setq auto-indent-indent-style 'aggressive)
+
+(require-package 'auto-indent-mode)
+(auto-indent-global-mode)

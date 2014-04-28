@@ -1,5 +1,6 @@
+(require-package 'color-theme)
 (require-package 'color-theme-solarized)
-(setq current-theme '(color-theme-solarized-light))
+(setq current-theme '(color-theme-solarized-dark))
 (defun set-theme ()
   (progn
     (setq hour
@@ -18,5 +19,5 @@
   (set-theme)
   (setq color-theme-is-global t))
 
-;; Set a timer to change them after 6:00 pm.
+;; Set a timer to change theme after 6:00 pm.
 (run-at-time 0 3600 'set-theme)
