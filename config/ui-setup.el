@@ -4,7 +4,8 @@
   (mouse-wheel-mode t)
   (blink-cursor-mode -1)
   (menu-bar-mode -1)
-  (desktop-save-mode 1))
+  ;;(desktop-save-mode -1)
+  )
 
 ;; visual window switcher
 (require-package 'switch-window)
