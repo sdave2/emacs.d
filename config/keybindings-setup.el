@@ -136,7 +136,8 @@
 
 ;; Find File in Project (projectile)
 (after 'projectile
-  (global-set-key (kbd "C-x p") 'projectile-find-file))
+  (global-set-key (kbd "C-x p") 'projectile-find-file)
+  (global-set-key (kbd "C-x C-p") 'projectile-switch-project))
 
 ;; Git
 (after 'git
@@ -159,4 +160,6 @@
 
 ;; paredit
 (after 'paredit
-  (define-key paredit-mode-map (kbd "C-M-<backspace>") 'backward-kill-sexp))
+  (define-key paredit-mode-map (kbd "C-M-<backspace>") 'backward-kill-sexp)
+  (define-key paredit-mode-map (kbd "C-M-d") 'paredit-duplicate-closest-sexp)
+  (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square))

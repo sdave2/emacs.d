@@ -5,6 +5,8 @@
 *~
 .#*
 ac-comphist.dat
+ido.last
+recentf
 
 # the package repository
 elpa/
@@ -17,6 +19,7 @@ cider-history
 auto-save-list/
 emacs.frameg
 .emacs.desktop
+.emacs.desktop.lock
 eshell
 
 # projectile
@@ -24,3 +27,4 @@ projectile-bookmarks.eld
 
 # osx stuff
 .DS_Store
+/tramp
