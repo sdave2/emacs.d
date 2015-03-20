@@ -28,6 +28,10 @@
                  [difform "1.1.2"]
 
                  [spyscope "0.1.5"]
+
+                 ;; Load 'HttpClientConnectionManager' class
+                 [org.apache.httpcomponents/httpclient "4.3.6"]
+
                  [org.clojure/tools.trace "0.7.8"]
                  [org.clojure/tools.namespace "0.2.9"]
                  [leiningen #=(leiningen.core.main/leiningen-version)]
