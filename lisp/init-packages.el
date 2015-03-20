@@ -2,7 +2,13 @@
 (require 'package)
 (setq package-user-dir "~/.emacs.d/elpa/")
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+
+(ignore-errors
+  (setq package-pinned-packages '((clojure-mode . "melpa-stable")
+                                  (cider . "melpa-stable"))))
 
 ;; On demand installation of packages
 (defun require-package (package &optional min-version no-refresh)
