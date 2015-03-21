@@ -156,7 +156,8 @@
 (after 'clojure
   ;; Remove the binding for inferior-lisp-mode
   (define-key clojure-mode-map (kbd "C-c C-z") nil)
-  (define-key clojure-mode-map (kbd "C-:") 'toggle-clj-keyword-string))
+  (define-key clojure-mode-map (kbd "C-:") 'toggle-clj-keyword-string)
+  (global-set-key (kbd "C-c M-q") 'lisp-fill-paragraph))
 
 ;; paredit
 (after 'paredit

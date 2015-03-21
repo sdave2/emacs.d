@@ -51,8 +51,11 @@ static char * arrow_right[] = {
 (defconst color2 "#586E75")
 (defconst color3 "#839496")
 (defconst color4 "#002B35")
-(defconst fontcolor1 "#FDF6E3")
-(defconst fontcolor2 "#EEE8D5")
+(defconst fontcolor1 "#0080ff")
+(defconst fontcolor2 "#0080ff")
+
+(defconst powerline-foreground "#0080ff")
+(defconst powerline-background "grey17")
 
 (defvar arrow-right-1 (create-image (arrow-right-xpm color1 color2)
                                     'xpm t :ascent 'center))
@@ -65,41 +68,41 @@ static char * arrow_right[] = {
 
 (setq-default mode-line-format
               (list  '(:eval (concat (propertize (concat  " " mode-name) 'face 'mode-line-color-1)
-                              (propertize (format-mode-line minor-mode-alist) 'face 'mode-line-color-1)
-                              (propertize " " 'face 'mode-line-color-1)
-                              (propertize " " 'display arrow-right-1)))
+                                     (propertize (format-mode-line minor-mode-alist) 'face 'mode-line-color-1)
+                                     (propertize " " 'face 'mode-line-color-1)
+                                     (propertize " " 'display arrow-right-1)))
                      '(:eval (concat (propertize " %* %b " 'face 'mode-line-color-2)
-                              (propertize " " 'display arrow-right-2)))
+                                     (propertize " " 'display arrow-right-2)))
                      ;; Justify right by filling with spaces to right fringe - 17
                      ;; (17 should be computed rather than hard-coded)
                      '(:eval (propertize " " 'display '((space :align-to (- right-fringe 17)))))
                      '(:eval (concat (propertize " " 'display arrow-left-2)
-                              (propertize
-                               (concat " " (replace-regexp-in-string
-                                            "%" "%%" (format-mode-line '(-3 "%p"))) " ")
-                               'face 'mode-line-color-2)))
+                                     (propertize
+                                      (concat " " (replace-regexp-in-string
+                                                   "%" "%%" (format-mode-line '(-3 "%p"))) " ")
+                                      'face 'mode-line-color-2)))
                      '(:eval (concat (propertize " " 'display arrow-left-1)
-                              (propertize "%4l     " 'face 'mode-line-color-3)))))
+                                     (propertize "%4l     " 'face 'mode-line-color-3)))))
 
 (make-face 'mode-line-color-1)
 (set-face-attribute 'mode-line-color-1 nil
-                    :foreground color1
-                    :background fontcolor1)
+                    :foreground powerline-foreground
+                    :background powerline-background)
 
 (make-face 'mode-line-color-2)
 (set-face-attribute 'mode-line-color-2 nil
-                    :foreground color2
-                    :background fontcolor2)
+                    :foreground powerline-foreground
+                    :background powerline-background)
 
 (make-face 'mode-line-color-3)
 (set-face-attribute 'mode-line-color-3 nil
-                    :foreground color3
-                    :background fontcolor1)
+                    :foreground powerline-foreground
+                    :background powerline-background)
 
 (set-face-attribute 'mode-line nil
-                    :foreground color4
-                    :background "#000"
-                    :box nil)
+                    :foreground powerline-foreground
+                    :background powerline-background)
+
 (set-face-attribute 'mode-line-inactive nil
-                    :foreground color3
-                    :background "#000")
+                    :foreground powerline-foreground
+                    :background powerline-background)

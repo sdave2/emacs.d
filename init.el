@@ -38,3 +38,24 @@
 ;; Run the emacs server
 (require 'server)
 (unless (server-running-p) (server-start))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(magit-diff-options (quote ("--ignore-all-space" "--ignore-space-change")))
+ '(shell-pop-shell-type
+   (quote
+    ("eshell" "*eshell*"
+     (lambda nil
+       (eshell shell-pop-term-shell)))))
+ '(shell-pop-universal-key "M-`")
+ '(shell-pop-window-height 100)
+ '(shell-pop-window-position "top"))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((t (:inherit nil :stipple nil :background "#fcf4dc" :foreground "#52676f" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "apple" :family "Menlo"))))
+;;  '(emacs-lisp-mode-default ((t (:inherit autoface-default :height 100 :family "Menlo"))) t))
