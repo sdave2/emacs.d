@@ -23,13 +23,13 @@
 
             [lein-bikeshed "0.2.0"]
             [lein-kibit "0.0.8"]]
-
   ;;Added by shwetank
   :repl-options {:timeout 540000}
 
   :dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
                  [difform "1.1.2"]
 
+                 [org.clojars.gjahad/debug-repl "0.3.3"]
                  [spyscope "0.1.5"]
 
                  ;; Load 'HttpClientConnectionManager' class
@@ -47,24 +47,27 @@
   :injections [(require 'spyscope.core)
                (require '[vinyasa.inject :as inject])
                (require 'io.aviso.repl)
-               (inject/in ;; the default injected namespace is `.`
+               (require 'alex-and-georges.debug-repl)
+               (require
+                (inject/in ;; the default injected namespace is `.`
 
-                ;; note that `:refer, :all and :exclude can be used
-                [vinyasa.inject :refer [inject [in inject-in]]]
-                [vinyasa.lein :exclude [*project*]]
+                 ;; note that `:refer, :all and :exclude can be used
+                 [vinyasa.inject :refer [inject [in inject-in]]]
+                 [vinyasa.lein :exclude [*project*]]
 
-                ;; imports all functions in vinyasa.pull
-                [vinyasa.pull :all]
+                 ;; imports all functions in vinyasa.pull
+                 [vinyasa.pull :all]
 
-                ;; same as [cemerick.pomegranate
-                ;;           :refer [add-classpath get-classpath resources]]
-                [cemerick.pomegranate add-classpath get-classpath resources]
+                 ;; same as [cemerick.pomegranate
+                 ;;           :refer [add-classpath get-classpath resources]]
+                 [cemerick.pomegranate add-classpath get-classpath resources]
+                 [alex-and-georges.debug-repl debug-repl]
 
-                ;; inject into clojure.core
-                clojure.core
-                [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
+                 ;; inject into clojure.core
+                 clojure.core
+                 [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
 
-                ;; inject into clojure.core with prefix
-                clojure.core >
-                [clojure.pprint pprint]
-                [clojure.java.shell sh])]}}
+                 ;; inject into clojure.core with prefix
+                 clojure.core >
+                 [clojure.pprint pprint]
+                 [clojure.java.shell sh]))]}}
