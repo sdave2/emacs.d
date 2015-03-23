@@ -49,26 +49,24 @@
                (require '[vinyasa.inject :as inject])
                (require 'io.aviso.repl)
                (require 'alex-and-georges.debug-repl)
-               (require
-                (inject/in ;; the default injected namespace is `.`
+               (inject/in ;; the default injected namespace is `.`
 
-                 ;; note that `:refer, :all and :exclude can be used
-                 [vinyasa.inject :refer [inject [in inject-in]]]
-                 [vinyasa.lein :exclude [*project*]]
+                ;; note that `:refer, :all and :exclude can be used
+                [vinyasa.inject :refer [inject [in inject-in]]]
+                [vinyasa.lein :exclude [*project*]]
 
-                 ;; imports all functions in vinyasa.pull
-                 [vinyasa.pull :all]
+                ;; imports all functions in vinyasa.pull
+                [vinyasa.pull :all]
 
-                 ;; same as [cemerick.pomegranate
-                 ;;           :refer [add-classpath get-classpath resources]]
-                 [cemerick.pomegranate add-classpath get-classpath resources]
-                 [alex-and-georges.debug-repl debug-repl]
+                ;; same as [cemerick.pomegranate
+                ;;           :refer [add-classpath get-classpath resources]]
+                [cemerick.pomegranate add-classpath get-classpath resources]
 
-                 ;; inject into clojure.core
-                 clojure.core
-                 [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
+                ;; inject into clojure.core
+                clojure.core
+                [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
 
-                 ;; inject into clojure.core with prefix
-                 clojure.core >
-                 [clojure.pprint pprint]
-                 [clojure.java.shell sh]))]}}
+                ;; inject into clojure.core with prefix
+                clojure.core >
+                [clojure.pprint pprint]
+                [clojure.java.shell sh])]}}
