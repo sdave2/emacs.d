@@ -1,6 +1,6 @@
 {:user
  {:plugins [;; REPL
-            [cider/cider-nrepl "0.8.2"]
+            [cider/cider-nrepl "0.9.0-SNAPSHOT"]
             [refactor-nrepl "0.2.2"]
             ;; Application server
             [lein-immutant "2.0.0-alpha2"]
@@ -38,7 +38,6 @@
 
                  [org.clojure/tools.trace "0.7.8"]
                  [org.clojure/tools.namespace "0.2.9"]
-                 [leiningen #=(leiningen.core.main/leiningen-version)]
                  [io.aviso/pretty "0.1.8"]
                  [im.chit/vinyasa "0.3.3"]
 
