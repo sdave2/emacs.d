@@ -1,3 +1,5 @@
+(setq tramp-default-method "ssh")
+
 (defun tramp-get-method-parameter (method param)
   "Return the method parameter PARAM.
 If the `tramp-methods' entry does not exist, return NIL."
@@ -44,4 +46,4 @@ PROGRAMS can be a list of strings, or a single string."
 ;;  '(("-o" "ControlPath=/Users/shwetankdave/tmp/" "-o" "ControlMaster=auto")))
 
 ;;----
-(setenv "TMPDIR" "/Users/shwetankdave/tmp/")
+(setenv "TMPDIR" "/Users/sdave/sandbox/emacs.d/tmp/")

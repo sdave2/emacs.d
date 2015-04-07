@@ -60,7 +60,8 @@
 
                 ;; same as [cemerick.pomegranate
                 ;;           :refer [add-classpath get-classpath resources]]
-                [cemerick.pomegranate add-classpath get-classpath resources]
+                [cemerick.pomegranate add-classpath get-classpath resources add-dependencies]
+                [alex-and-georges.debug-repl :refer [debug-repl]]
 
                 ;; inject into clojure.core
                 clojure.core
