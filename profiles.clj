@@ -52,7 +52,6 @@
 
                 ;; note that `:refer, :all and :exclude can be used
                 [vinyasa.inject :refer [inject [in inject-in]]]
-                [vinyasa.lein :exclude [*project*]]
 
                 ;; imports all functions in vinyasa.pull
                 [vinyasa.pull :all]
