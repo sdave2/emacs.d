@@ -4,5 +4,5 @@
   (message "Copied filename %s" (kill-new (buffer-file-name))))
 
 ;; -- all keybindings --
-(global-set-key (kbd "C-c c") 'copy-filename)
-(global-set-key (kbd "M-t") 'toggle-window-split)
+(bind-key "C-c c" 'copy-filename)
+(bind-key "M-t" 'toggle-window-split)
