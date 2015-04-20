@@ -1,21 +1,23 @@
 {:user
- {:plugins [;; REPL
+ {:jvm-opts ["-XX:-OmitStackTraceInFastThrow"]
+  :plugins [;; REPL
             [cider/cider-nrepl "0.9.0-SNAPSHOT"]
-            [refactor-nrepl "0.2.2"]
+            [refactor-nrepl "1.0.3"]
+
             ;; Application server
-            [lein-immutant "2.0.0-alpha2"]
+            [lein-immutant "2.0.0"]
 
             ;; Automated testing
             [lein-cloverage "1.0.2"]
             [lein-test-out "0.3.1"]
 
             ;; Package management
-            [lein-ancient "0.6.3"]
+            [lein-ancient "0.6.7"]
             [lein-licenses "0.2.0"]
             [lein-clojars "0.9.1"]
 
             ;; Documentation
-            [codox "0.8.10"]
+            [codox "0.8.11"]
             [lein-clojuredocs "1.0.2"]
 
             ;; Static analysis
@@ -23,11 +25,10 @@
             ;; [jonase/eastwood "0.1.2"]
 
             [lein-bikeshed "0.2.0"]
-            [lein-kibit "0.0.8"]]
-  ;;Added by shwetank
-  :repl-options {:timeout 540000}
+            [lein-kibit "0.1.2"]]
 
-  :dependencies [[org.clojars.gjahad/debug-repl "0.3.3"]
+  :dependencies [[org.clojure/tools.nrepl "0.2.10"]
+                 [org.clojars.gjahad/debug-repl "0.3.3"]
                  [difform "1.1.2"]
 
                  [org.clojars.gjahad/debug-repl "0.3.3"]
@@ -37,35 +38,23 @@
                  [org.apache.httpcomponents/httpclient "4.3.6"]
 
                  [org.clojure/tools.trace "0.7.8"]
-                 [org.clojure/tools.namespace "0.2.9"]
-                 [io.aviso/pretty "0.1.8"]
-                 [im.chit/vinyasa "0.3.3"]
+                 [org.clojure/tools.namespace "0.2.10"]
+                 [alembic "0.3.2"]
+                 [im.chit/vinyasa.inject "0.3.4"]
+                 [im.chit/vinyasa.reflection "0.3.4"]
+                 [io.aviso/pretty "0.1.17"]
 
                  [slamhound "1.5.5"]
                  [criterium "0.4.3"]]
 
   :injections [(require 'spyscope.core)
                (require '[vinyasa.inject :as inject])
-               (require 'io.aviso.repl)
-               (require 'alex-and-georges.debug-repl)
-               (inject/in ;; the default injected namespace is `.`
+               (inject/in [vinyasa.inject :refer [inject [in inject-in]]]
+                          [clojure.pprint pprint]
+                          [clojure.java.shell sh]
+                          [alembic.still [distill pull] lein [load-project pull-project]]
+                          [clojure.tools.namespace.repl refresh]
+                          [clojure.repl doc source]
 
-                ;; note that `:refer, :all and :exclude can be used
-                [vinyasa.inject :refer [inject [in inject-in]]]
-
-                ;; imports all functions in vinyasa.pull
-                [vinyasa.pull :all]
-
-                ;; same as [cemerick.pomegranate
-                ;;           :refer [add-classpath get-classpath resources]]
-                [cemerick.pomegranate add-classpath get-classpath resources add-dependencies]
-                [alex-and-georges.debug-repl :refer [debug-repl]]
-
-                ;; inject into clojure.core
-                clojure.core
-                [vinyasa.reflection .> .? .* .% .%> .& .>ns .>var]
-
-                ;; inject into clojure.core with prefix
-                clojure.core >
-                [clojure.pprint pprint]
-                [clojure.java.shell sh])]}}
+                          clojure.core
+                          [vinyasa.reflection .& .> .? .* .% .%>])]}}
