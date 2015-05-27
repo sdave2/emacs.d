@@ -1,7 +1,7 @@
 {:user
  {:jvm-opts ["-XX:-OmitStackTraceInFastThrow"]
   :plugins [;; REPL
-            [cider/cider-nrepl "0.9.0-SNAPSHOT"]
+            [cider/cider-nrepl "0.8.2"]
             [refactor-nrepl "1.0.3"]
 
             ;; Application server
@@ -49,12 +49,14 @@
 
   :injections [(require 'spyscope.core)
                (require '[vinyasa.inject :as inject])
+               (require 'alex-and-georges.debug-repl)
                (inject/in [vinyasa.inject :refer [inject [in inject-in]]]
                           [clojure.pprint pprint]
                           [clojure.java.shell sh]
                           [alembic.still [distill pull] lein [load-project pull-project]]
                           [clojure.tools.namespace.repl refresh]
                           [clojure.repl doc source]
+                          [alex-and-georges.debug-repl debug-repl]
 
                           clojure.core
                           [vinyasa.reflection .& .> .? .* .% .%>])]}}
