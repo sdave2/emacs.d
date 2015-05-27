@@ -12,6 +12,7 @@
          ("\\.edn$" . clojure-mode)
          ("\\.dtm$" . clojure-mode))
   :config (progn
+            (fset 'clojure-indent-line 'lisp-indent-line)
             (diminish-major-mode 'clojure-mode "Cλ")
             (bind-key "C-c C-z" nil clojure-mode-map))) ; Remove the binding for inferior-lisp-mode
 
@@ -46,7 +47,7 @@
 (use-package clj-refactor :ensure t
   :init (add-hook 'clojure-mode-hook (lambda ()
                                        (clj-refactor-mode 1)
-                                       (cljr-add-keybindings-with-prefix "C-c C-m")))
+                                       (cljr-add-keybindings-with-prefix "C-c M-r")))
   :diminish "")
 
 (use-package cljsbuild-mode :ensure t)

@@ -3,7 +3,6 @@
   :plugins [;; REPL
             [cider/cider-nrepl "0.8.2"]
             [refactor-nrepl "1.0.3"]
-
             ;; Application server
             [lein-immutant "2.0.0"]
 
