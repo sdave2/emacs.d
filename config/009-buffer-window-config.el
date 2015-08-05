@@ -51,7 +51,7 @@
          ("<C-s-left>" . buf-move-left)
          ("<C-s-right>" . buf-move-right)))
 
-(use-package ace-window :ensure t
+(use-package ace-window :ensure t :pin melpa-stable
   :init (windmove-default-keybindings)
   :bind (("C-x o" . ace-window)
          ("C-M-]" . scroll-other-window)
