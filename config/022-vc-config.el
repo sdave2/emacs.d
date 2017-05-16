@@ -3,8 +3,10 @@
                  (set-face-foreground 'diff-added "green4")
                  (set-face-foreground 'diff-removed "red3")))
 
-(use-package magit :ensure t
-  :init (progn (setq magit-last-seen-setup-instructions "1.4.0")
+(use-package magit-popup :ensure t :pin melpa-stable)
+
+(use-package magit :ensure t :pin melpa-stable
+  :init (progn (setq magit-last-seen-setup-instructions "2.1.0")
                (setq-default magit-save-some-buffers nil
                              magit-process-popup-time 10
                              magit-diff-refine-hunk t
